@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66AA4E5D2A982C510035BF34 /* BookSearchAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E5C2A982C510035BF34 /* BookSearchAppApp.swift */; };
+		66AA4E5D2A982C510035BF34 /* BookSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E5C2A982C510035BF34 /* BookSearchApp.swift */; };
 		66AA4E5F2A982C510035BF34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E5E2A982C510035BF34 /* ContentView.swift */; };
 		66AA4E612A982C520035BF34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AA4E602A982C520035BF34 /* Assets.xcassets */; };
 		66AA4E642A982C520035BF34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AA4E632A982C520035BF34 /* Preview Assets.xcassets */; };
 		66AA4E6E2A982C520035BF34 /* BookSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E6D2A982C520035BF34 /* BookSearchAppTests.swift */; };
 		66AA4E782A982C520035BF34 /* BookSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E772A982C520035BF34 /* BookSearchAppUITests.swift */; };
 		66AA4E7A2A982C520035BF34 /* BookSearchAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E792A982C520035BF34 /* BookSearchAppUITestsLaunchTests.swift */; };
+		66AA4E882A9844E30035BF34 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 66AA4E872A9844E30035BF34 /* Moya */; };
+		66AA4E8D2A9846290035BF34 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E8C2A9846290035BF34 /* SearchView.swift */; };
+		66AA4E8F2A9846350035BF34 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E8E2A9846350035BF34 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		66AA4E592A982C510035BF34 /* BookSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		66AA4E5C2A982C510035BF34 /* BookSearchAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchAppApp.swift; sourceTree = "<group>"; };
+		66AA4E5C2A982C510035BF34 /* BookSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchApp.swift; sourceTree = "<group>"; };
 		66AA4E5E2A982C510035BF34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66AA4E602A982C520035BF34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66AA4E632A982C520035BF34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,6 +47,8 @@
 		66AA4E732A982C520035BF34 /* BookSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AA4E772A982C520035BF34 /* BookSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchAppUITests.swift; sourceTree = "<group>"; };
 		66AA4E792A982C520035BF34 /* BookSearchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		66AA4E8C2A9846290035BF34 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		66AA4E8E2A9846350035BF34 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AA4E882A9844E30035BF34 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +100,10 @@
 		66AA4E5B2A982C510035BF34 /* BookSearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				66AA4E5C2A982C510035BF34 /* BookSearchAppApp.swift */,
+				66AA4E8A2A9844FE0035BF34 /* Services */,
+				66AA4E892A9844F80035BF34 /* Model */,
+				66AA4E8B2A9845FE0035BF34 /* View */,
+				66AA4E5C2A982C510035BF34 /* BookSearchApp.swift */,
 				66AA4E5E2A982C510035BF34 /* ContentView.swift */,
 				66AA4E602A982C520035BF34 /* Assets.xcassets */,
 				66AA4E622A982C520035BF34 /* Preview Content */,
@@ -127,6 +136,30 @@
 			path = BookSearchAppUITests;
 			sourceTree = "<group>";
 		};
+		66AA4E892A9844F80035BF34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66AA4E8A2A9844FE0035BF34 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66AA4E8B2A9845FE0035BF34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66AA4E8C2A9846290035BF34 /* SearchView.swift */,
+				66AA4E8E2A9846350035BF34 /* DetailView.swift */,
+			);
+			name = View;
+			path = "퍋ㅈ";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +176,9 @@
 			dependencies = (
 			);
 			name = BookSearchApp;
+			packageProductDependencies = (
+				66AA4E872A9844E30035BF34 /* Moya */,
+			);
 			productName = BookSearchApp;
 			productReference = 66AA4E592A982C510035BF34 /* BookSearchApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +251,9 @@
 				Base,
 			);
 			mainGroup = 66AA4E502A982C510035BF34;
+			packageReferences = (
+				66AA4E862A9844E30035BF34 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 66AA4E5A2A982C510035BF34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66AA4E5F2A982C510035BF34 /* ContentView.swift in Sources */,
-				66AA4E5D2A982C510035BF34 /* BookSearchAppApp.swift in Sources */,
+				66AA4E8F2A9846350035BF34 /* DetailView.swift in Sources */,
+				66AA4E8D2A9846290035BF34 /* SearchView.swift in Sources */,
+				66AA4E5D2A982C510035BF34 /* BookSearchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		66AA4E862A9844E30035BF34 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		66AA4E872A9844E30035BF34 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66AA4E862A9844E30035BF34 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 66AA4E512A982C510035BF34 /* Project object */;
 }
