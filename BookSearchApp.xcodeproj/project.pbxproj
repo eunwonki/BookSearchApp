@@ -17,6 +17,13 @@
 		66AA4E882A9844E30035BF34 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 66AA4E872A9844E30035BF34 /* Moya */; };
 		66AA4E8D2A9846290035BF34 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E8C2A9846290035BF34 /* SearchView.swift */; };
 		66AA4E8F2A9846350035BF34 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E8E2A9846350035BF34 /* DetailView.swift */; };
+		66AA4E932A9846C70035BF34 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E922A9846C70035BF34 /* SearchViewModel.swift */; };
+		66AA4E952A9846FB0035BF34 /* OpenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E942A9846FB0035BF34 /* OpenAPI.swift */; };
+		66AA4E972A9847A40035BF34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E962A9847A40035BF34 /* Configuration.swift */; };
+		66AA4E9A2A984F2B0035BF34 /* Moya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E992A984F2B0035BF34 /* Moya+Extension.swift */; };
+		66AA4E9D2A999A600035BF34 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 66AA4E9C2A999A600035BF34 /* ComposableArchitecture */; };
+		66AA4E9F2A999DB70035BF34 /* FullScreenProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4E9E2A999DB70035BF34 /* FullScreenProgressView.swift */; };
+		66AA4EB42A9A09710035BF34 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EB32A9A09710035BF34 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,12 @@
 		66AA4E792A982C520035BF34 /* BookSearchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66AA4E8C2A9846290035BF34 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		66AA4E8E2A9846350035BF34 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		66AA4E922A9846C70035BF34 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		66AA4E942A9846FB0035BF34 /* OpenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAPI.swift; sourceTree = "<group>"; };
+		66AA4E962A9847A40035BF34 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		66AA4E992A984F2B0035BF34 /* Moya+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extension.swift"; sourceTree = "<group>"; };
+		66AA4E9E2A999DB70035BF34 /* FullScreenProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenProgressView.swift; sourceTree = "<group>"; };
+		66AA4EB32A9A09710035BF34 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AA4E9D2A999A600035BF34 /* ComposableArchitecture in Frameworks */,
 				66AA4E882A9844E30035BF34 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,11 +114,13 @@
 		66AA4E5B2A982C510035BF34 /* BookSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				66AA4E982A984F210035BF34 /* Extensions */,
 				66AA4E8A2A9844FE0035BF34 /* Services */,
 				66AA4E892A9844F80035BF34 /* Model */,
 				66AA4E8B2A9845FE0035BF34 /* View */,
 				66AA4E5C2A982C510035BF34 /* BookSearchApp.swift */,
 				66AA4E5E2A982C510035BF34 /* ContentView.swift */,
+				66AA4E962A9847A40035BF34 /* Configuration.swift */,
 				66AA4E602A982C520035BF34 /* Assets.xcassets */,
 				66AA4E622A982C520035BF34 /* Preview Content */,
 			);
@@ -146,6 +162,7 @@
 		66AA4E8A2A9844FE0035BF34 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				66AA4E942A9846FB0035BF34 /* OpenAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -153,11 +170,37 @@
 		66AA4E8B2A9845FE0035BF34 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				66AA4E902A9846A00035BF34 /* SearchView */,
+				66AA4E912A9846AF0035BF34 /* DetailView */,
+				66AA4E9E2A999DB70035BF34 /* FullScreenProgressView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66AA4E902A9846A00035BF34 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
 				66AA4E8C2A9846290035BF34 /* SearchView.swift */,
+				66AA4E922A9846C70035BF34 /* SearchViewModel.swift */,
+				66AA4EB32A9A09710035BF34 /* SearchResultCell.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		66AA4E912A9846AF0035BF34 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
 				66AA4E8E2A9846350035BF34 /* DetailView.swift */,
 			);
-			name = View;
-			path = "퍋ㅈ";
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		66AA4E982A984F210035BF34 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				66AA4E992A984F2B0035BF34 /* Moya+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +221,7 @@
 			name = BookSearchApp;
 			packageProductDependencies = (
 				66AA4E872A9844E30035BF34 /* Moya */,
+				66AA4E9C2A999A600035BF34 /* ComposableArchitecture */,
 			);
 			productName = BookSearchApp;
 			productReference = 66AA4E592A982C510035BF34 /* BookSearchApp.app */;
@@ -253,6 +297,7 @@
 			mainGroup = 66AA4E502A982C510035BF34;
 			packageReferences = (
 				66AA4E862A9844E30035BF34 /* XCRemoteSwiftPackageReference "Moya" */,
+				66AA4E9B2A999A5F0035BF34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 66AA4E5A2A982C510035BF34 /* Products */;
 			projectDirPath = "";
@@ -296,7 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AA4E952A9846FB0035BF34 /* OpenAPI.swift in Sources */,
 				66AA4E5F2A982C510035BF34 /* ContentView.swift in Sources */,
+				66AA4E972A9847A40035BF34 /* Configuration.swift in Sources */,
+				66AA4E9A2A984F2B0035BF34 /* Moya+Extension.swift in Sources */,
+				66AA4EB42A9A09710035BF34 /* SearchResultCell.swift in Sources */,
+				66AA4E932A9846C70035BF34 /* SearchViewModel.swift in Sources */,
+				66AA4E9F2A999DB70035BF34 /* FullScreenProgressView.swift in Sources */,
 				66AA4E8F2A9846350035BF34 /* DetailView.swift in Sources */,
 				66AA4E8D2A9846290035BF34 /* SearchView.swift in Sources */,
 				66AA4E5D2A982C510035BF34 /* BookSearchApp.swift in Sources */,
@@ -636,6 +687,14 @@
 				version = 15.0.3;
 			};
 		};
+		66AA4E9B2A999A5F0035BF34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +702,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 66AA4E862A9844E30035BF34 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		66AA4E9C2A999A600035BF34 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66AA4E9B2A999A5F0035BF34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
