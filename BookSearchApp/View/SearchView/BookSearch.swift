@@ -6,6 +6,12 @@
 //
 
 import ComposableArchitecture
+import UIKit
+
+struct BookWithCover: Equatable {
+    let book: Book
+    let cover: UIImage?
+}
 
 struct BookSearch: Reducer {
     let size = 10
@@ -16,6 +22,7 @@ struct BookSearch: Reducer {
         var books = [Book]()
         var loadingState = LoadingState.none
         var isFinished = false
+        var thumbnails: [Book: UIImage] = [:]
         
         enum LoadingState {
             case none
@@ -27,7 +34,7 @@ struct BookSearch: Reducer {
     enum Action: Equatable {
         case changeKeyword(String)
         case search
-        case dataLoaded(TaskResult<[Book]>)
+        case dataLoaded(TaskResult<[BookWithCover]>)
         case appear(Book)
     }
     
@@ -48,19 +55,20 @@ struct BookSearch: Reducer {
                 let result = await TaskResult {
                     let response: SearchResponse = try await providers.open.request(
                         .search(query: state.keyword, page: state.page, size: size))
-                    return response.docs
+                    return await loadCovers(response)
                 }
                 await send(.dataLoaded(result))
             }
             
-        case let .dataLoaded(.success(books)):
+        case let .dataLoaded(.success(result)):
             state.loadingState = .none
-            state.isFinished = books.count != size
+            state.isFinished = result.count != size
             if state.page == 1 {
-                state.books = books
+                state.books = result.map { $0.book }
             } else {
-                state.books.append(contentsOf: books)
+                state.books.append(contentsOf: result.map { $0.book })
             }
+            result.forEach { state.thumbnails[$0.book] = $0.cover }
             return .none
             
         case .dataLoaded(.failure):
@@ -81,10 +89,29 @@ struct BookSearch: Reducer {
                 let result = await TaskResult {
                     let response: SearchResponse = try await providers.open.request(
                         .search(query: state.keyword, page: state.page, size: size))
-                    return response.docs
+                    return await loadCovers(response)
                 }
                 await send(.dataLoaded(result))
             }
+        }
+    }
+    
+    func loadCovers(_ response: SearchResponse) async -> [BookWithCover] {
+        do {
+            return try await response.docs.concurrentMap {
+                if let thumbnailUrl = $0.coverUrl(.thumbnail) {
+                    do {
+                        let image = try await CacheManager.shared.loadImage(
+                            origin: thumbnailUrl)
+                        return BookWithCover(book: $0, cover: image)
+                    } catch {
+                        return BookWithCover(book: $0, cover: nil)
+                    }
+                }
+                return BookWithCover(book: $0, cover: nil)
+            }
+        } catch {
+            return response.docs.map { BookWithCover(book: $0, cover: nil) }
         }
     }
 }

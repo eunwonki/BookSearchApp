@@ -9,6 +9,20 @@ import Foundation
 import Moya
 import ComposableArchitecture
 
+class WebServiceConfiguration {
+    
+    /// 출처: https://phillip5094.tistory.com/151
+    static let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestResultClosure) in
+        do {
+            var request = try endpoint.urlRequest()
+            request.timeoutInterval = 10
+            done(.success(request))
+        } catch {
+            done(.failure(MoyaError.underlying(error, nil)))
+        }
+    }
+}
+
 class Providers {
     enum DeviceType {
         case real
@@ -23,7 +37,8 @@ class Providers {
             open = MoyaProvider<OpenAPI>(
                 stubClosure: MoyaProvider.delayedStub(0.5))
         case .real:
-            open = MoyaProvider<OpenAPI>()
+            open = MoyaProvider<OpenAPI>(
+                requestClosure: WebServiceConfiguration.requestClosure)
         }
     }
 }

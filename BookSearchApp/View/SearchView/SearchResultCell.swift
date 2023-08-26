@@ -9,12 +9,24 @@ import SwiftUI
 
 struct SearchResultCell: View {
     let book: Book
+    let thumbnail: UIImage?
     
     var body: some View {
         HStack {
-            Image(systemName: "heart")
-                .resizable()
-                .frame(width: 100, height: 100)
+            ZStack {
+                Color.blue
+                
+                if let thumbnail {
+                    Image(uiImage: thumbnail)
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Image(systemName: "photo.artframe")
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                }
+            }.frame(width: 64, height: 89)
             
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -54,7 +66,7 @@ struct SearchResultCell_Previews: PreviewProvider {
     
     static var previews: some View {
         ZStack {
-            SearchResultCell(book: book)
+            SearchResultCell(book: book, thumbnail: nil)
         }
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

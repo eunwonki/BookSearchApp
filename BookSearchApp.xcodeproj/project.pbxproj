@@ -23,6 +23,8 @@
 		66AA4EB62A9A18530035BF34 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EB52A9A18530035BF34 /* BookSearch.swift */; };
 		66AA4EB92A9A2CDA0035BF34 /* Moya+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EB82A9A2CDA0035BF34 /* Moya+TCA.swift */; };
 		66AA4EBB2A9A372A0035BF34 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBA2A9A372A0035BF34 /* Book.swift */; };
+		66AA4EBE2A9A47720035BF34 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBD2A9A47720035BF34 /* CacheManager.swift */; };
+		66AA4EC02A9A4D500035BF34 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBF2A9A4D500035BF34 /* Async.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		66AA4EB52A9A18530035BF34 /* BookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearch.swift; sourceTree = "<group>"; };
 		66AA4EB82A9A2CDA0035BF34 /* Moya+TCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+TCA.swift"; sourceTree = "<group>"; };
 		66AA4EBA2A9A372A0035BF34 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		66AA4EBD2A9A47720035BF34 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		66AA4EBF2A9A4D500035BF34 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 		66AA4E8A2A9844FE0035BF34 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				66AA4EBC2A9A475F0035BF34 /* Storage */,
 				66AA4EB72A9A2CB10035BF34 /* API */,
 			);
 			path = Services;
@@ -188,6 +193,7 @@
 			children = (
 				66AA4EB82A9A2CDA0035BF34 /* Moya+TCA.swift */,
 				66AA4E992A984F2B0035BF34 /* Moya+Extension.swift */,
+				66AA4EBF2A9A4D500035BF34 /* Async.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +204,14 @@
 				66AA4E942A9846FB0035BF34 /* OpenAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		66AA4EBC2A9A475F0035BF34 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				66AA4EBD2A9A47720035BF34 /* CacheManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +356,7 @@
 				66AA4E5F2A982C510035BF34 /* ContentView.swift in Sources */,
 				66AA4E9A2A984F2B0035BF34 /* Moya+Extension.swift in Sources */,
 				66AA4EBB2A9A372A0035BF34 /* Book.swift in Sources */,
+				66AA4EBE2A9A47720035BF34 /* CacheManager.swift in Sources */,
 				66AA4EB42A9A09710035BF34 /* SearchResultCell.swift in Sources */,
 				66AA4E9F2A999DB70035BF34 /* FullScreenProgressView.swift in Sources */,
 				66AA4E8F2A9846350035BF34 /* DetailView.swift in Sources */,
@@ -349,6 +364,7 @@
 				66AA4E5D2A982C510035BF34 /* BookSearchApp.swift in Sources */,
 				66AA4EB62A9A18530035BF34 /* BookSearch.swift in Sources */,
 				66AA4EB92A9A2CDA0035BF34 /* Moya+TCA.swift in Sources */,
+				66AA4EC02A9A4D500035BF34 /* Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

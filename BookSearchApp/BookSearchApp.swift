@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-// TODO: thumbnail 및 메모리 캐시 구현. (이미지 파일을 중복으로 다운받지 않도록)
 // TODO: 상세 페이지 구현.
-
-// TODO: 로딩 애니메이션 추가. (API Response 시간제한을 10초로 제한하는 코드를 넣어야 사용성을 해치지 않을 듯.)
+// TODO: 검색화면에서 페이징이 씹히는 경우가 있는데 확인해 볼 것.
 // TODO: Preview를 위한 Sample Data 추가.
 
 // 선택 추가 구현

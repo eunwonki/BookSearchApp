@@ -42,7 +42,9 @@ struct SearchView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(store.books, id: \.key) { book in
-                            SearchResultCell(book: book)
+                            SearchResultCell(
+                                book: book,
+                                thumbnail: store.thumbnails[book])
                                 .onAppear {
                                     store.send(.appear(book))
                                 }

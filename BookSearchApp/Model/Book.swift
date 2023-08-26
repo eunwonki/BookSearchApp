@@ -13,7 +13,7 @@ struct SearchResponse: Codable {
     var docs: [Book]
 }
 
-struct Book: Codable, Equatable {
+struct Book: Codable, Hashable {
     var key: String
     var type: String
     var title: String
@@ -31,6 +31,6 @@ struct Book: Codable, Equatable {
     
     func coverUrl(_ type: CoverType) -> String? {
         guard let cover_i else { return nil }
-        return "https://covers.openlibrary.org/b/isbn/\(cover_i)-\(type.rawValue).jpg"
+        return "https://covers.openlibrary.org/b/id/\(cover_i)-\(type.rawValue).jpg"
     }
 }
