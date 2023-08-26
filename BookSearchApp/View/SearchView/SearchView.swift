@@ -43,6 +43,13 @@ struct SearchView: View {
                     LazyVStack {
                         ForEach(store.books, id: \.key) { book in
                             SearchResultCell(book: book)
+                                .onAppear {
+                                    store.send(.appear(book))
+                                }
+                        }
+                        
+                        if store.loadingState == .loadingMore {
+                            ProgressView()
                         }
                     }.padding(.horizontal, 16)
                 }

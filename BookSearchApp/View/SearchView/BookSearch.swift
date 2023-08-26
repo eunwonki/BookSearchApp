@@ -15,6 +15,7 @@ struct BookSearch: Reducer {
         var page = 1
         var books = [Book]()
         var loadingState = LoadingState.none
+        var isFinished = false
         
         enum LoadingState {
             case none
@@ -27,7 +28,7 @@ struct BookSearch: Reducer {
         case changeKeyword(String)
         case search
         case dataLoaded(TaskResult<[Book]>)
-        case loadMore
+        case appear(Book)
     }
     
     @Dependency(\.providers) var providers
@@ -39,6 +40,9 @@ struct BookSearch: Reducer {
             return .none
             
         case .search:
+            guard state.loadingState == .none else { return .none }
+            
+            state.page = 1
             state.loadingState = .loadingFirst
             return Effect.run { [state] send in
                 let result = await TaskResult {
@@ -51,15 +55,36 @@ struct BookSearch: Reducer {
             
         case let .dataLoaded(.success(books)):
             state.loadingState = .none
-            state.books = books
+            state.isFinished = books.count != size
+            if state.page == 1 {
+                state.books = books
+            } else {
+                state.books.append(contentsOf: books)
+            }
             return .none
             
         case .dataLoaded(.failure):
             state.loadingState = .none
             return .none
             
-        case .loadMore:
-            return .none
+        case let .appear(book):
+            guard state.isFinished == false else { return .none }
+            guard let index = state.books.firstIndex(of: book) else {
+                return .none
+            }
+            guard index == state.books.count - 1 else { return .none }
+            guard state.loadingState == .none else { return .none }
+            
+            state.page += 1
+            state.loadingState = .loadingMore
+            return Effect.run { [state] send in
+                let result = await TaskResult {
+                    let response: SearchResponse = try await providers.open.request(
+                        .search(query: state.keyword, page: state.page, size: size))
+                    return response.docs
+                }
+                await send(.dataLoaded(result))
+            }
         }
     }
 }
