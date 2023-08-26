@@ -32,7 +32,7 @@ extension OpenAPI {
         if titleCandidates.count == 0 { return response }
         for id in (page * size)..<((page + 1) * size) {
             var book = Book(key: "\(id)", type: "work",
-                            title: titleCandidates.randomElement()!,
+                            title: titleCandidates[id % titleCandidates.count],
                             author_name: ["Liam"], publisher: ["America"])
             response.docs.append(book)
         }
