@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 extension UIApplication {
     func endEditing() {
@@ -15,12 +16,12 @@ extension UIApplication {
 }
 
 struct ContentView: View {
-    @EnvironmentObject var configuration: Configuration
-    
     var body: some View {
         NavigationView {
-            SearchView(model: .init(
-                provider: configuration.provider))
+            SearchView(store: Store(
+                initialState: BookSearch.State()) {
+                BookSearch()
+            })
         }
         .contentShape(Rectangle())
         .onTapGesture {
@@ -32,6 +33,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(Configuration(.preview))
     }
 }

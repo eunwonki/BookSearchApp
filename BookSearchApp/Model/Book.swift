@@ -1,34 +1,11 @@
 //
-//  SearchViewModel.swift
+//  Book.swift
 //  BookSearchApp
 //
-//  Created by wonki on 2023/08/25.
+//  Created by wonki on 2023/08/26.
 //
 
 import Foundation
-import Moya
-
-extension SearchView {
-    @MainActor
-    class ViewModel: ObservableObject {
-        let provider: MoyaProvider<OpenAPI>
-        @Published var books: [Book] = []
-        
-        init(provider: MoyaProvider<OpenAPI>) {
-            self.provider = provider
-        }
-        
-        var query: String = ""
-        var page = 1
-        let size = 10
-        func populate(query: String) async throws {
-            self.query = query
-            let response: SearchResponse = try! await provider.request(
-                .search(query: self.query, page: page, size: size))
-            books = response.docs
-        }
-    }
-}
 
 struct SearchResponse: Codable {
     var start = 0
@@ -36,7 +13,7 @@ struct SearchResponse: Codable {
     var docs: [Book]
 }
 
-struct Book: Codable {
+struct Book: Codable, Equatable {
     var key: String
     var type: String
     var title: String
