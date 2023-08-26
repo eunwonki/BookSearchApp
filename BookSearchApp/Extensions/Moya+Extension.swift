@@ -24,7 +24,6 @@ extension MoyaProvider {
                 target, completion: { result in
                     switch result {
                     case .success(let response):
-                        print("\(String(data: response.data, encoding: .utf8)!)")
                         continuation.resume(returning: response.data)
                     case .failure(let error):
                         continuation.resume(throwing: error)

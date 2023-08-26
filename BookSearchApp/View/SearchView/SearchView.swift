@@ -45,9 +45,14 @@ struct SearchView: View {
                             SearchResultCell(
                                 book: book,
                                 thumbnail: store.thumbnails[book])
-                                .onAppear {
-                                    store.send(.appear(book))
-                                }
+                            .onAppear {
+                                store.send(.appear(book))
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                store.send(.showDetailView(book))
+                            }
+                            .background(navigationLink(store: store))
                         }
                         
                         if store.loadingState == .loadingMore {
@@ -59,6 +64,28 @@ struct SearchView: View {
             
             if store.loadingState == .loadingFirst {
                 FullScreenProgressView()
+            }
+        }
+    }
+    
+    func navigationLink(
+        store: ViewStore<BookSearch.State, BookSearch.Action>)
+    -> some View {
+        Group {
+            if let book = store.showDetailView {
+                NavigationLink(
+                    destination: DetailView(
+                        book: book),
+                    isActive: store.binding(
+                        get: {
+                            $0.showDetailView != nil
+                        },
+                        send: { state in
+                                .showDetailView(
+                                    state ? book : nil)
+                        })) {
+                            EmptyView()
+                        }
             }
         }
     }

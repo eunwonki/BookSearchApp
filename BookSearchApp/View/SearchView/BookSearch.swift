@@ -24,6 +24,8 @@ struct BookSearch: Reducer {
         var isFinished = false
         var thumbnails: [Book: UIImage] = [:]
         
+        var showDetailView: Book?
+        
         enum LoadingState {
             case none
             case loadingFirst
@@ -36,6 +38,7 @@ struct BookSearch: Reducer {
         case search
         case dataLoaded(TaskResult<[BookWithCover]>)
         case appear(Book)
+        case showDetailView(Book?)
     }
     
     @Dependency(\.providers) var providers
@@ -93,6 +96,10 @@ struct BookSearch: Reducer {
                 }
                 await send(.dataLoaded(result))
             }
+            
+        case let .showDetailView(book):
+            state.showDetailView = book
+            return .none
         }
     }
     

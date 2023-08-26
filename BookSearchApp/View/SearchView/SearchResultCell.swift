@@ -26,7 +26,9 @@ struct SearchResultCell: View {
                         .scaledToFit()
                         .padding()
                 }
-            }.frame(width: 64, height: 89)
+            }
+            .frame(width: 64, height: 89)
+            .clipShape(Rectangle())
             
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -53,9 +55,6 @@ struct SearchResultCell: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.gray.cornerRadius(20))
-        .contentShape(Rectangle())
-        .onTapGesture { // TODO: Detail 화면 전환
-        }
     }
 }
 
