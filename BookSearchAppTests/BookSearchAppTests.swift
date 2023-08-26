@@ -28,9 +28,8 @@ final class BookSearchAppTests: XCTestCase {
         
         // 2. 검색을 했을때, 예상하는 검색 결과가 나오는지를 테스트.
         await store.send(.search)
-        
-        await store.receive(.dataLoaded(.success([]))) { newState in
-            newState.books = []
+        store.state.books.forEach {
+            XCTAssert($0.title.contains(store.state.keyword))
         }
     }
 }

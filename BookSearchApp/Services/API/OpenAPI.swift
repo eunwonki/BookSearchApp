@@ -43,8 +43,4 @@ enum OpenAPI: TargetType {
     var headers: [String : String]? {
         return nil
     }
-    
-    var sampleData: Data {
-        Data()
-    }
 }

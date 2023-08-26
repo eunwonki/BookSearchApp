@@ -25,6 +25,7 @@
 		66AA4EBB2A9A372A0035BF34 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBA2A9A372A0035BF34 /* Book.swift */; };
 		66AA4EBE2A9A47720035BF34 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBD2A9A47720035BF34 /* CacheManager.swift */; };
 		66AA4EC02A9A4D500035BF34 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EBF2A9A4D500035BF34 /* Async.swift */; };
+		66AA4EC22A9A72070035BF34 /* OpenAPI+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA4EC12A9A72070035BF34 /* OpenAPI+SampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		66AA4EBA2A9A372A0035BF34 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		66AA4EBD2A9A47720035BF34 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		66AA4EBF2A9A4D500035BF34 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		66AA4EC12A9A72070035BF34 /* OpenAPI+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenAPI+SampleData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				66AA4E942A9846FB0035BF34 /* OpenAPI.swift */,
+				66AA4EC12A9A72070035BF34 /* OpenAPI+SampleData.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			files = (
 				66AA4E952A9846FB0035BF34 /* OpenAPI.swift in Sources */,
 				66AA4E5F2A982C510035BF34 /* ContentView.swift in Sources */,
+				66AA4EC22A9A72070035BF34 /* OpenAPI+SampleData.swift in Sources */,
 				66AA4E9A2A984F2B0035BF34 /* Moya+Extension.swift in Sources */,
 				66AA4EBB2A9A372A0035BF34 /* Book.swift in Sources */,
 				66AA4EBE2A9A47720035BF34 /* CacheManager.swift in Sources */,

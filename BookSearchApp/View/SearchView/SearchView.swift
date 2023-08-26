@@ -94,9 +94,15 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static let store = Store(initialState: BookSearch.State()) {
         BookSearch()
+    } withDependencies: {
+        $0.providers = Providers(.preview)
     }
     
     static var previews: some View {
         SearchView(store: store)
+            .onAppear {
+                store.send(.changeKeyword("Swift"))
+                store.send(.search)
+            }
     }
 }
