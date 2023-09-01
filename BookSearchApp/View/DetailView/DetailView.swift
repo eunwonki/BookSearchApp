@@ -44,8 +44,8 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading, spacing: 15) {
                     descriptionRow(title: "제목", content: book.title)
-                    descriptionRow(title: "저자", content: book.author_name.joined(separator: ", "))
-                    descriptionRow(title: "출판사", content: book.publisher.joined(separator: ", "))
+                    descriptionRow(title: "저자", content: book.author_name?.joined(separator: ", ") ?? "")
+                    descriptionRow(title: "출판사", content: book.publisher?.joined(separator: ", ") ?? "")
                     if let person = book.person {
                         descriptionRow(title: "등장인물", content: person.joined(separator: ", "))
                     }

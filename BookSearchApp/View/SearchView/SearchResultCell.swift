@@ -39,15 +39,15 @@ struct SearchResultCell: View {
                 
                 HStack {
                     Text("저자: ").foregroundColor(.white)
-                    Text(book.author_name.joined(
-                        separator: ",")).foregroundColor(.white)
+                    Text(book.author_name?.joined(
+                        separator: ",") ?? "").foregroundColor(.white)
                         .lineLimit(1)
                 }
                 
                 HStack {
                     Text("출판사: ").foregroundColor(.white)
-                    Text(book.publisher.joined(
-                        separator: ",")).foregroundColor(.white)
+                    Text(book.publisher?.joined(
+                        separator: ",") ?? "").foregroundColor(.white)
                         .lineLimit(1)
                 }
             }

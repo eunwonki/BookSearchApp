@@ -17,8 +17,8 @@ struct Book: Codable, Hashable {
     var key: String
     var type: String
     var title: String
-    var author_name: [String]
-    var publisher: [String]
+    var author_name: [String]?
+    var publisher: [String]?
     var cover_i: Int?
     
     var edition_count: Int?
